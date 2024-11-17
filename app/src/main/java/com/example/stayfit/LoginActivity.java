@@ -3,11 +3,13 @@ package com.example.stayfit;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -19,6 +21,14 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        loadData();
+        if(loadData()==true)
+        {
+            Intent i=new Intent(this,HomeActivity.class);
+            startActivity(i);
+            finish();
+        }
 
         e1_username=findViewById(R.id.Username);
         e2_password=findViewById(R.id.Password);
@@ -41,9 +51,11 @@ public class LoginActivity extends AppCompatActivity {
                     e2_password.setError("Password must be Greater than 5 Letters");
                 }
                 else {
+                    saveData();
                     Intent i=new Intent(LoginActivity.this,HomeActivity.class);
                     startActivity(i);
                     finish();
+                    Toast.makeText(LoginActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -63,8 +75,24 @@ public class LoginActivity extends AppCompatActivity {
                 Intent i=new Intent(LoginActivity.this,ForgetpassActivity.class);
                 startActivity(i);
                 finish();
+
             }
         });
 
     }
+    public void saveData()
+    {
+        SharedPreferences preferences=getSharedPreferences("sharedPref",MODE_PRIVATE);
+        SharedPreferences.Editor editor=preferences.edit();
+        editor.putBoolean("Flag",true);
+        editor.apply();
+    }
+    public boolean loadData()
+    {
+        SharedPreferences preferences=getSharedPreferences("sharedPref",MODE_PRIVATE);
+        boolean myKey=preferences.getBoolean("Flag",false);
+        return myKey;
+    }
+
+
 }
