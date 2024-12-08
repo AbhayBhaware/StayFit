@@ -296,7 +296,7 @@
             android:layout_gravity="center"
             android:textStyle="normal"
             android:textColor="#FF0000"
-            android:textSize="@dimen/_16sdp"/>
+            android:textSize="@dimen/_17sdp"/>
 
 
 
