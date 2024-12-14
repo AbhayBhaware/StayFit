@@ -21,6 +21,6 @@ public class SpalashActivity extends AppCompatActivity {
                 startActivity(i);
                 finish();
             }
-        },4000);
+        },3000);
     }
 }
