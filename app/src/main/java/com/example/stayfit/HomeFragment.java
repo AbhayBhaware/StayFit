@@ -17,9 +17,9 @@ import android.widget.Toast;
 
 public class HomeFragment extends Fragment {
 
-    TextView t1;
+    TextView t1, t2_weightlift;
 
-    ImageView i1;
+    ImageView i1, i2_weightI;
 
 
     @Override
@@ -31,6 +31,8 @@ public class HomeFragment extends Fragment {
 
         t1=v.findViewById(R.id.yogatext);
         i1=v.findViewById(R.id.yogaimg);
+        t2_weightlift=v.findViewById(R.id.weightliftTxt);
+        i2_weightI=v.findViewById(R.id.weightImg);
 
         t1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +61,35 @@ public class HomeFragment extends Fragment {
                 transaction.commit();
 
                 Toast.makeText(getContext(), "Yoga Page", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        t2_weightlift.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment weighfragment=new WeightLiftFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,weighfragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+                Toast.makeText(getContext(), "Weight Lifting Page", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        i2_weightI.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment weiFragment=new WeightLiftFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,weiFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+                Toast.makeText(getContext(), "Weight Lifting Page", Toast.LENGTH_SHORT).show();
             }
         });
 

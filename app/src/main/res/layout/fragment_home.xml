@@ -179,6 +179,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="WEIGHTLIFTING"
+                                android:id="@+id/weightliftTxt"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_13sdp"
                                 android:textStyle="normal" />
@@ -293,6 +294,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:id="@+id/weightImg"
                             android:src="@drawable/weightlifiting" />
 
                         <TextView
