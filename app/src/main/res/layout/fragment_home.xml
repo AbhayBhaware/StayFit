@@ -201,6 +201,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="CARDIO"
+                                android:id="@+id/cardiotxt"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_13sdp"
                                 android:textStyle="normal" />
@@ -344,6 +345,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:id="@+id/cardioimg"
                             android:src="@drawable/cardio" />
 
                         <TextView

@@ -17,9 +17,9 @@ import android.widget.Toast;
 
 public class HomeFragment extends Fragment {
 
-    TextView t1, t2_weightlift;
+    TextView t1, t2_weightlift, t3_cardio;
 
-    ImageView i1, i2_weightI;
+    ImageView i1, i2_weightI, i3_cardioI;
 
 
     @Override
@@ -33,6 +33,8 @@ public class HomeFragment extends Fragment {
         i1=v.findViewById(R.id.yogaimg);
         t2_weightlift=v.findViewById(R.id.weightliftTxt);
         i2_weightI=v.findViewById(R.id.weightImg);
+        t3_cardio=v.findViewById(R.id.cardiotxt);
+        i3_cardioI=v.findViewById(R.id.cardioimg);
 
         t1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +92,34 @@ public class HomeFragment extends Fragment {
                 transaction.commit();
 
                 Toast.makeText(getContext(), "Weight Lifting Page", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        t3_cardio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment carFragment=new CardioFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,carFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+                Toast.makeText(getContext(), "Cardio Page", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        i3_cardioI.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment cardFragment=new CardioFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,cardFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+                Toast.makeText(getContext(), "Cardio Page", Toast.LENGTH_SHORT).show();
             }
         });
 
