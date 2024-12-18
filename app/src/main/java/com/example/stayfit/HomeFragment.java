@@ -17,9 +17,9 @@ import android.widget.Toast;
 
 public class HomeFragment extends Fragment {
 
-    TextView t1, t2_weightlift, t3_cardio;
+    TextView t1, t2_weightlift, t3_cardio, t4_homework;
 
-    ImageView i1, i2_weightI, i3_cardioI;
+    ImageView i1, i2_weightI, i3_cardioI, i4_homeworkI;
 
 
     @Override
@@ -35,6 +35,8 @@ public class HomeFragment extends Fragment {
         i2_weightI=v.findViewById(R.id.weightImg);
         t3_cardio=v.findViewById(R.id.cardiotxt);
         i3_cardioI=v.findViewById(R.id.cardioimg);
+        t4_homework=v.findViewById(R.id.homeworktxt);
+        i4_homeworkI=v.findViewById(R.id.homeworkimg);
 
         t1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,6 +122,36 @@ public class HomeFragment extends Fragment {
                 transaction.commit();
 
                 Toast.makeText(getContext(), "Cardio Page", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        t4_homework.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment homeworkFragment=new HomeWorkoutFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,homeworkFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+
+                Toast.makeText(getContext(), "HomeWorkout Page", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        i4_homeworkI.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment homeworkOFragment=new HomeWorkoutFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,homeworkOFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+                Toast.makeText(getContext(), "HomeWorkout Page", Toast.LENGTH_SHORT).show();
             }
         });
 

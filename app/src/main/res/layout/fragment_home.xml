@@ -225,6 +225,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="HOME WORKOUT"
+                                android:id="@+id/homeworktxt"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_13sdp"
                                 android:textStyle="normal" />
@@ -382,6 +383,7 @@
                         app:cardElevation="@dimen/_10sdp">
 
                         <ImageView
+                            android:id="@+id/homeworkimg"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:src="@drawable/homeworkout" />
