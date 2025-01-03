@@ -92,6 +92,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:id="@+id/vruImg"
                             android:src="@drawable/vru"/>
                         <TextView
                             android:layout_width="wrap_content"
@@ -117,6 +118,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:id="@+id/bhuImg"
                             android:src="@drawable/bhujanga"/>
 
                         <TextView
@@ -152,7 +154,9 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/setubandhasana"/>
+                            android:id="@+id/setuImg"
+                            android:src="@drawable/setubandhasana" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -177,6 +181,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:id="@+id/vira2Img"
                             android:src="@drawable/virabhadrasana2"/>
 
                         <TextView
@@ -213,6 +218,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:id="@+id/balaImg"
                             android:src="@drawable/balasana"/>
                         <TextView
                             android:layout_width="wrap_content"
@@ -238,6 +244,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:id="@+id/adhoImg"
                             android:src="@drawable/adhomukha"/>
 
                         <TextView
@@ -273,6 +280,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:id="@+id/tadaImg"
                             android:src="@drawable/tadasana"/>
                         <TextView
                             android:layout_width="wrap_content"
@@ -298,6 +306,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:id="@+id/vira1Img"
                             android:src="@drawable/virabhadrasana1"/>
 
                         <TextView
