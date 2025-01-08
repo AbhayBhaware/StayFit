@@ -116,10 +116,10 @@
                         app:cardElevation="@dimen/_10sdp">
 
                         <ImageView
+                            android:id="@+id/bhuImg"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:id="@+id/bhuImg"
-                            android:src="@drawable/bhujanga"/>
+                            android:src="@drawable/bhujanga" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -216,10 +216,11 @@
                         app:cardElevation="@dimen/_10sdp">
 
                         <ImageView
+                            android:id="@+id/balaImg"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:id="@+id/balaImg"
-                            android:src="@drawable/balasana"/>
+                            android:src="@drawable/balasana" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -278,10 +279,11 @@
                         app:cardElevation="@dimen/_10sdp">
 
                         <ImageView
+                            android:id="@+id/tadaImg"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:id="@+id/tadaImg"
-                            android:src="@drawable/tadasana"/>
+                            android:src="@drawable/tadasana" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

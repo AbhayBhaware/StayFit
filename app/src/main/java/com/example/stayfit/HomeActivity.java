@@ -31,14 +31,6 @@ public class HomeActivity extends AppCompatActivity {
                 {
                     fragment=new HomeFragment();
                 }
-                if (item.getItemId()==R.id.workout)
-                {
-                    fragment =new WorkoutFragment();
-                }
-                if (item.getItemId()==R.id.progress)
-                {
-                    fragment=new ProgressFragment();
-                }
                 if (item.getItemId()==R.id.profilee)
                 {
                     fragment=new ProfileFragment();

@@ -5,13 +5,9 @@
         android:title="Home"
         android:icon="@drawable/home"/>
 
-    <item android:id="@+id/workout"
-        android:title="Workout"
-        android:icon="@drawable/workout"/>
 
-    <item android:id="@+id/progress"
-        android:title="Progress"
-        android:icon="@drawable/progress"/>
+
+    
 
     <item android:id="@+id/profilee"
         android:title="Profile"
