@@ -3,62 +3,151 @@ package com.example.stayfit;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CardioFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class CardioFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    ImageView i1_walking, i2_jogging, i3_highknees, i4_jumpingjacks, i5_jumprope, i6_mountain, i7_skaters, i8_step;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public CardioFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CardioFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CardioFragment newInstance(String param1, String param2) {
-        CardioFragment fragment = new CardioFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cardio, container, false);
+        View v= inflater.inflate(R.layout.fragment_cardio, container, false);
+
+        i1_walking=v.findViewById(R.id.walkingImg);
+        i2_jogging=v.findViewById(R.id.jogginginImg);
+        i3_highknees=v.findViewById(R.id.highkneesImg);
+        i4_jumpingjacks=v.findViewById(R.id.jumpingjacksImg);
+        i5_jumprope=v.findViewById(R.id.jumpropeImg);
+        i6_mountain=v.findViewById(R.id.mountainImg);
+        i7_skaters=v.findViewById(R.id.skatersImg);
+        i8_step=v.findViewById(R.id.stepImg);
+
+
+
+
+        i1_walking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment cardioSteps =new WalkingFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,cardioSteps);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+                Toast.makeText(getContext(), "Walking", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        i2_jogging.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment cardioSteps =new JogginginplaceFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,cardioSteps);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+                Toast.makeText(getContext(), "Jogging in Place", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        i3_highknees.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment cardioSteps=new HighKneesFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,cardioSteps);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+                Toast.makeText(getContext(), "High Knees", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        i4_jumpingjacks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment cardioSteps=new JumpingjacksFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,cardioSteps);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+                Toast.makeText(getContext(), "Jumping Jacks", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        i5_jumprope.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment cardioSteps =new JumpropeFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,cardioSteps);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+                Toast.makeText(getContext(), "Jump Rope", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        i6_mountain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment cardioSteps=new MountainclimbFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,cardioSteps);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+                Toast.makeText(getContext(), "Mountain Climbers", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        i7_skaters.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment cardioSteps=new SkatersFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,cardioSteps);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+                Toast.makeText(getContext(), "Skaters", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        i8_step.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment cardioSteps=new StepFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,cardioSteps);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+                Toast.makeText(getContext(), "Step Ups", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return v;
     }
 }

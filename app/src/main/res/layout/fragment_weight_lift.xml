@@ -84,6 +84,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:id="@+id/gobletImg"
                             android:src="@drawable/gobletsquats" />
 
                         <TextView
@@ -110,6 +111,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:id="@+id/DeadliftImg"
                             android:src="@drawable/deadlift"/>
 
                         <TextView
@@ -145,7 +147,9 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/bicepscurls"/>
+                            android:id="@+id/bicepcurlsImg"
+                            android:src="@drawable/bicepscurls" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -170,6 +174,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:id="@+id/shoulderraisesImg"
                             android:src="@drawable/shoulderlateralraises"/>
 
                         <TextView
@@ -205,6 +210,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:id="@+id/tricepImg"
                             android:src="@drawable/tricepsdips"/>
                         <TextView
                             android:layout_width="wrap_content"
@@ -230,6 +236,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:id="@+id/stepupsImg"
                             android:src="@drawable/stepups"/>
 
                         <TextView
@@ -266,6 +273,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:id="@+id/benchpressImg"
                             android:src="@drawable/dumbbellbenchpress"/>
                         <TextView
                             android:layout_width="wrap_content"
@@ -291,6 +299,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:id="@+id/bentoverImg"
                             android:src="@drawable/bentoverrows"/>
 
                         <TextView
