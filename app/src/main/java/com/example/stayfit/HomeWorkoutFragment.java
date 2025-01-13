@@ -3,62 +3,151 @@ package com.example.stayfit;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeWorkoutFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class HomeWorkoutFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public HomeWorkoutFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeWorkoutFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static HomeWorkoutFragment newInstance(String param1, String param2) {
-        HomeWorkoutFragment fragment = new HomeWorkoutFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    ImageView i1_bodyweight, i2_pushup, i3_plank, i4_bicycle, i5_glute, i6_sideleg, i7_wallsit, i8_stepups;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_workout, container, false);
+        View v= inflater.inflate(R.layout.fragment_home_workout, container, false);
+
+        i1_bodyweight=v.findViewById(R.id.bodyweightImg);
+        i2_pushup=v.findViewById(R.id.pushupImg);
+        i3_plank=v.findViewById(R.id.plankImg);
+        i4_bicycle=v.findViewById(R.id.bicycleImg);
+        i5_glute=v.findViewById(R.id.gluteImg);
+        i6_sideleg=v.findViewById(R.id.sidelegImg);
+        i7_wallsit=v.findViewById(R.id.wallsitImg);
+        i8_stepups=v.findViewById(R.id.stepupsImgg);
+
+
+
+
+
+        i1_bodyweight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment homeSteps=new BodyweightFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,homeSteps);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+                
+            }
+        });
+
+        i2_pushup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment homeSteps =new PushupsFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,homeSteps);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+
+            }
+        });
+
+        i3_plank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment homeSteps =new PlankFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,homeSteps);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+            }
+        });
+
+        i4_bicycle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment homeSteps=new BicycleFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,homeSteps);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+
+            }
+        });
+
+        i5_glute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment homeSteps=new GluteFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,homeSteps);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+
+            }
+        });
+
+        i6_sideleg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment homeSteps =new SidelegraisesFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,homeSteps);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+
+            }
+        });
+
+        i7_wallsit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment homeSteps =new WallsitFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,homeSteps);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+
+            }
+        });
+
+        i8_stepups.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment homeSteps =new StepupssFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,homeSteps);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+                
+            }
+        });
+
+        return v;
     }
 }

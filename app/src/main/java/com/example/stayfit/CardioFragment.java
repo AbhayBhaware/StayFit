@@ -46,7 +46,7 @@ public class CardioFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Walking", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -60,7 +60,7 @@ public class CardioFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Jogging in Place", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -74,7 +74,7 @@ public class CardioFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "High Knees", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -88,7 +88,7 @@ public class CardioFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Jumping Jacks", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -102,7 +102,7 @@ public class CardioFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Jump Rope", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -116,7 +116,6 @@ public class CardioFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Mountain Climbers", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -130,7 +129,7 @@ public class CardioFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Skaters", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -144,7 +143,7 @@ public class CardioFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Step Ups", Toast.LENGTH_SHORT).show();
+
             }
         });
 

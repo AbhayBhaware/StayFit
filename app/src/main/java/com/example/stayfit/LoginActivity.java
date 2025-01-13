@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         loadData();
         if(loadData()==true)
         {
-            Intent i=new Intent(this,HomeActivity.class);
+            Intent i=new Intent(LoginActivity.this,TakeWeiHigActivity.class);
             startActivity(i);
             finish();
         }
@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else {
                     saveData();
-                    Intent i=new Intent(LoginActivity.this,HomeActivity.class);
+                    Intent i=new Intent(LoginActivity.this,TakeWeiHigActivity.class);
                     startActivity(i);
                     finish();
                     Toast.makeText(LoginActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();

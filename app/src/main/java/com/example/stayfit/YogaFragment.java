@@ -45,7 +45,7 @@ public class YogaFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Vrukshasana", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -59,7 +59,7 @@ public class YogaFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Bhujangasana", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -73,7 +73,7 @@ public class YogaFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Setu Bandhasana", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -87,7 +87,6 @@ public class YogaFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Virabhadrasana 2", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -101,7 +100,7 @@ public class YogaFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Balasana", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -115,7 +114,7 @@ public class YogaFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Adho Mukhasana", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -129,7 +128,7 @@ public class YogaFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Tadasana", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -143,7 +142,7 @@ public class YogaFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Virabhadrasana 1", Toast.LENGTH_SHORT).show();
+
             }
         });
 

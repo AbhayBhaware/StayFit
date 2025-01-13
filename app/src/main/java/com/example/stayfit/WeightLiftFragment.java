@@ -43,7 +43,6 @@ public class WeightLiftFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Goblet Squats", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -57,7 +56,7 @@ public class WeightLiftFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Deadlift", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -71,7 +70,7 @@ public class WeightLiftFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Bicep Curls", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -85,7 +84,7 @@ public class WeightLiftFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Shoulder Raises", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -99,7 +98,7 @@ public class WeightLiftFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Tricep Dips", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -113,7 +112,7 @@ public class WeightLiftFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Step Ups", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -127,7 +126,7 @@ public class WeightLiftFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Bench Press", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -141,7 +140,7 @@ public class WeightLiftFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-                Toast.makeText(getContext(), "Bent Over Rows", Toast.LENGTH_SHORT).show();
+
             }
         });
 
