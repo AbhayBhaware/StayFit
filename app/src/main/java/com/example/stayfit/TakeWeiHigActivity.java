@@ -19,13 +19,13 @@ public class TakeWeiHigActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_take_wei_hig);
 
-        /*loadData();
-        if(loadData()==true)
+        loadDataa();
+        if(loadDataa()==true)
         {
             Intent i=new Intent(TakeWeiHigActivity.this,HomeActivity.class);
             startActivity(i);
             finish();
-        }*/
+        }
 
         b1_enter=findViewById(R.id.enterBu);
         e1_we=findViewById(R.id.weEdit);
@@ -41,7 +41,7 @@ public class TakeWeiHigActivity extends AppCompatActivity {
                     e2_hi.setError("Error");
                 }
                 else {
-                    //saveData();
+                    saveDataa();
                     Intent i = new Intent(TakeWeiHigActivity.this, HomeActivity.class);
                     startActivity(i);
                     finish();
@@ -51,19 +51,19 @@ public class TakeWeiHigActivity extends AppCompatActivity {
         });
     }
 
-    /*public void saveData()
+    public void saveDataa()
     {
-        SharedPreferences preferences=getSharedPreferences("sharedPref",MODE_PRIVATE);
+        SharedPreferences preferences=getSharedPreferences("sharedPreff",MODE_PRIVATE);
         SharedPreferences.Editor editor=preferences.edit();
         editor.putBoolean("Flag",true);
         editor.apply();
     }
 
-    public boolean loadData()
+    public boolean loadDataa()
     {
-        SharedPreferences preferences=getSharedPreferences("sharedPref",MODE_PRIVATE);
-        boolean myKey =preferences.getBoolean("Flag",false);
+        SharedPreferences preferences=getSharedPreferences("sharedPreff",MODE_PRIVATE);
+        boolean myKey=preferences.getBoolean("Flag",false);
         return myKey;
-    }*/
+    }
 
 }

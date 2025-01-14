@@ -103,6 +103,7 @@
                 android:textColor="@color/black"
                 android:background="#00000000"
                 android:id="@+id/weEdit"
+                android:textColorHint="@color/black"
                 android:inputType="number"
                 android:hint="00.00KG"/>
 
@@ -134,14 +135,15 @@
             app:cardElevation="@dimen/_8sdp">
 
             <EditText
+                android:id="@+id/hiEdit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/_5sdp"
-                android:textColor="@color/black"
-                android:id="@+id/hiEdit"
                 android:background="#00000000"
+                android:hint="00.00CM"
                 android:inputType="number"
-                android:hint="00.00FT"/>
+                android:textColor="@color/black"
+                android:textColorHint="@color/black" />
 
         </androidx.cardview.widget.CardView>
 
