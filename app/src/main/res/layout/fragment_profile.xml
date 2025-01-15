@@ -40,7 +40,8 @@
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="Username"
+               android:text="Guest"
+               android:id="@+id/userNM"
                android:textColor="@color/black"
                android:textStyle="normal|italic"
                android:layout_gravity="center"
@@ -75,6 +76,7 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:text="60kg"
+               android:id="@+id/IDweight"
            android:textColor="@color/black"
                android:layout_marginLeft="@dimen/_5sdp"
                android:layout_marginTop="@dimen/_5sdp"
@@ -102,7 +104,8 @@
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="5.9cm"
+               android:text="170cm"
+               android:id="@+id/IDHight"
                android:layout_marginLeft="@dimen/_5sdp"
                android:layout_marginTop="@dimen/_5sdp"
                android:textColor="@color/black"
@@ -110,6 +113,7 @@
                android:layout_gravity="center"
                android:textSize="@dimen/_15sdp"
                />
+
            </LinearLayout>
 
 

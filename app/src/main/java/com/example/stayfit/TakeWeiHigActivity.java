@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class TakeWeiHigActivity extends AppCompatActivity {
 
@@ -42,9 +43,30 @@ public class TakeWeiHigActivity extends AppCompatActivity {
                 }
                 else {
                     saveDataa();
+
+                    String weight=e1_we.getText().toString();
+                    if ((!weight.isEmpty())) {
+                        SharedPreferences sharedPreferences = getSharedPreferences("Myweight", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("weight", weight);
+                        editor.apply();
+                    }
+
+                    String hight=e2_hi.getText().toString();
+                    if (!hight.isEmpty())
+                    {
+                        SharedPreferences sharedPreferences=getSharedPreferences("Myhight",MODE_PRIVATE);
+                        SharedPreferences.Editor editor=sharedPreferences.edit();
+                        editor.putString("hight",hight);
+                        editor.apply();
+                    }
+
+
+
                     Intent i = new Intent(TakeWeiHigActivity.this, HomeActivity.class);
                     startActivity(i);
                     finish();
+
                 }
 
             }

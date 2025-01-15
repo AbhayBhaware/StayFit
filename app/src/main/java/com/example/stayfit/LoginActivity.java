@@ -1,6 +1,9 @@
 package com.example.stayfit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -52,10 +55,24 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else {
                     saveData();
+
+
+                    String username =e1_username.getText().toString();
+                    if(!username.isEmpty())
+                    {
+                        SharedPreferences sharedPreferences=getSharedPreferences("MyAppPrefs",MODE_PRIVATE);
+                        SharedPreferences.Editor editor=sharedPreferences.edit();
+                        editor.putString("username",username);
+                        editor.apply();
+                    }
+
+
                     Intent i=new Intent(LoginActivity.this,TakeWeiHigActivity.class);
                     startActivity(i);
                     finish();
                     Toast.makeText(LoginActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+
+
                 }
             }
         });
@@ -78,6 +95,8 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+
 
     }
     public void saveData()
