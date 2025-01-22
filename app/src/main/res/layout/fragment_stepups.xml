@@ -64,7 +64,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1) Stand and Balance :"
+                        android:text="1) Starting Position :"
                         android:textSize="@dimen/_13sdp"
                         android:textColor="@color/black"
                         android:textStyle="normal"
@@ -74,7 +74,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Stand and shift your weight onto your left foot. Place your right foot on your inner ankle or calf (avoid the knee)."
+                        android:text="Stand in front of a sturdy bench or step with your feet hip-width apart.
+Keep your chest up and engage your core."
                         android:textSize="@dimen/_12sdp"
                         android:layout_marginLeft="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_5sdp"
@@ -85,7 +86,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2) Position Your Hands :"
+                        android:text="2) Stepping Up :"
                         android:textSize="@dimen/_13sdp"
                         android:textStyle="normal"
                         android:layout_marginTop="@dimen/_7sdp"
@@ -96,7 +97,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bring your palms together in prayer position at above your head."
+                        android:text="Step onto the bench with your right foot, pressing through your heel to lift your body up."
                         android:textSize="@dimen/_12sdp"
                         android:layout_marginLeft="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_5sdp"
@@ -107,7 +108,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3) Hold and Switch :"
+                        android:text="3) Stepping Down :"
                         android:textSize="@dimen/_13sdp"
                         android:textStyle="normal"
                         android:layout_marginTop="@dimen/_7sdp"
@@ -118,7 +119,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Focus on a fixed point,breathe deeply,and hold for 5 seconds.Release and repeat on the other side"
+                        android:text="Step back down with your left foot first, followed by the right foot, returning to the starting position."
                         android:textSize="@dimen/_12sdp"
                         android:layout_marginLeft="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_5sdp"

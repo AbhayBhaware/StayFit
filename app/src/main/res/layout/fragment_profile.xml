@@ -116,7 +116,15 @@
 
            </LinearLayout>
 
-
+           <Button
+               android:layout_width="172dp"
+               android:layout_height="@dimen/_35sdp"
+               android:layout_marginTop="@dimen/_10sdp"
+               android:text="Edit"
+               android:textColor="@color/black"
+               android:textStyle="normal"
+               android:textSize="@dimen/_16sdp"
+               android:backgroundTint="#01C99E"/>
 
 
        </LinearLayout>

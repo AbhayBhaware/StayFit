@@ -65,7 +65,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1) Stand and Balance :"
+                        android:text="1) Starting Position :"
                         android:textSize="@dimen/_13sdp"
                         android:textColor="@color/black"
                         android:textStyle="normal"
@@ -75,7 +75,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Stand and shift your weight onto your left foot. Place your right foot on your inner ankle or calf (avoid the knee)."
+                        android:text="Stand with your feet hip-width apart, toes pointing forward, and the barbell (or weights) close to your shins."
                         android:textSize="@dimen/_12sdp"
                         android:layout_marginLeft="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_5sdp"
@@ -86,29 +86,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2) Position Your Hands :"
-                        android:textSize="@dimen/_13sdp"
-                        android:textStyle="normal"
-                        android:layout_marginTop="@dimen/_7sdp"
-                        android:textColor="@color/black"
-                        android:layout_marginLeft="@dimen/_8sdp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Bring your palms together in prayer position at above your head."
-                        android:textSize="@dimen/_12sdp"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:textColor="@color/black"
-                        android:textStyle="normal"
-                        android:layout_marginRight="@dimen/_5sdp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="3) Hold and Switch :"
+                        android:text="2) Lifting the Weight :"
                         android:textSize="@dimen/_13sdp"
                         android:textStyle="normal"
                         android:layout_marginTop="@dimen/_7sdp"
@@ -119,13 +97,35 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Focus on a fixed point,breathe deeply,and hold for 5 seconds.Release and repeat on the other side"
-                        android:textSize="@dimen/_12sdp"
                         android:layout_marginLeft="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:text="Engage your core, push through your heels, and lift the weight."
                         android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3) Lowering the Weight :"
+                        android:textSize="@dimen/_13sdp"
                         android:textStyle="normal"
-                        android:layout_marginRight="@dimen/_5sdp"/>
+                        android:layout_marginTop="@dimen/_7sdp"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:text="Hinge at your hips and slowly lower the bar back down, keeping your back straight and knees slightly bent"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="normal" />
 
                 </LinearLayout>
 
