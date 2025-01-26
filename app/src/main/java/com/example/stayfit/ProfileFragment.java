@@ -1,6 +1,7 @@
 package com.example.stayfit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -13,10 +14,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ProfileFragment extends Fragment {
 
+
+    LinearLayout l1;
 
     TextView t1User, t2Weight, t3Hight;
 
@@ -44,8 +48,26 @@ public class ProfileFragment extends Fragment {
         String hight=sharedPreferences2.getString("hight","170");
         t3Hight.setText(hight);
 
+        l1=v.findViewById(R.id.shareLAY);
+
+        l1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shareText("Check Out My Application StayFit");
+            }
+        });
+
+
 
 
         return v;
+    }
+
+    public void shareText(String txt)
+    {
+        Intent i=new Intent(Intent.ACTION_SEND);
+        i.setType("text/plain");
+        i.putExtra(Intent.EXTRA_TEXT, txt);
+        startActivity(Intent.createChooser(i, "Share Via"));
     }
 }
