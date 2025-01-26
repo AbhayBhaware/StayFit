@@ -1,5 +1,6 @@
 package com.example.stayfit;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,12 +16,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ProfileFragment extends Fragment {
 
 
-    LinearLayout l1;
+    LinearLayout l1, l2, l3;
 
     TextView t1User, t2Weight, t3Hight;
 
@@ -49,6 +52,8 @@ public class ProfileFragment extends Fragment {
         t3Hight.setText(hight);
 
         l1=v.findViewById(R.id.shareLAY);
+        l2=v.findViewById(R.id.rateusLAY);
+        l3=v.findViewById(R.id.feedbackLAY);
 
         l1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +62,26 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        l2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 showRatingDialog();
+            }
+        });
+
+        l3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment feedFrag=new FeedbackFragment();
+                FragmentManager fragmentManager=getParentFragmentManager();
+                FragmentTransaction transaction=fragmentManager.beginTransaction();
+                transaction.replace(R.id.framelayout,feedFrag);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+                Toast.makeText(getContext(), "Feedback Page", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
 
@@ -70,4 +95,29 @@ public class ProfileFragment extends Fragment {
         i.putExtra(Intent.EXTRA_TEXT, txt);
         startActivity(Intent.createChooser(i, "Share Via"));
     }
+
+    public void showRatingDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setTitle("Rate Our App");
+
+        final RatingBar ratingBar = new RatingBar(requireContext());
+        ratingBar.setNumStars(5);
+        ratingBar.setStepSize(0.5f);
+        ratingBar.setLayoutParams(new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        ));
+
+        builder.setView(ratingBar);
+
+        builder.setPositiveButton("Submit", (dialog, which) -> {
+            float rating = ratingBar.getRating();
+            Toast.makeText(getContext(), "Rating Done", Toast.LENGTH_SHORT).show();
+        });
+
+        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
+
+        builder.show();
+    }
+
 }
