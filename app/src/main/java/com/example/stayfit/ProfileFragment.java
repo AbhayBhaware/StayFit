@@ -20,12 +20,17 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.security.PrivateKey;
+import java.util.PrimitiveIterator;
+
 public class ProfileFragment extends Fragment {
 
 
     LinearLayout l1, l2, l3;
 
-    TextView t1User, t2Weight, t3Hight;
+    TextView t1User, t2Weight, t3Hight, logout;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,6 +59,7 @@ public class ProfileFragment extends Fragment {
         l1=v.findViewById(R.id.shareLAY);
         l2=v.findViewById(R.id.rateusLAY);
         l3=v.findViewById(R.id.feedbackLAY);
+        logout=v.findViewById(R.id.logoutBTN);
 
         l1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,9 +89,29 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logoutUser();
+            }
+        });
+
 
 
         return v;
+    }
+
+    private void logoutUser()
+    {
+        SharedPreferences sharedPreferences=requireActivity().getSharedPreferences("sharedPref",requireActivity().MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+
+        Intent i=new Intent(requireActivity(),LoginActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(i);
+        requireActivity().finish();
     }
 
     public void shareText(String txt)
@@ -119,5 +145,6 @@ public class ProfileFragment extends Fragment {
 
         builder.show();
     }
+
 
 }
