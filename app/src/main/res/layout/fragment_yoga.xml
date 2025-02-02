@@ -38,7 +38,7 @@
                     android:layout_height="@dimen/_50sdp"
                     android:src="@drawable/yogarighttop"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/_180sdp"/>
+                    android:layout_marginLeft="@dimen/_181sdp"/>
 
 
             </LinearLayout>
