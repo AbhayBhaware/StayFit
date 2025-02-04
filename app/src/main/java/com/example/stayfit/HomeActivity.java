@@ -31,6 +31,10 @@ public class HomeActivity extends AppCompatActivity {
                 {
                     fragment=new HomeFragment();
                 }
+                if (item.getItemId()==R.id.foodBTN)
+                {
+                    fragment=new DietFragment();
+                }
                 if (item.getItemId()==R.id.profilee)
                 {
                     fragment=new ProfileFragment();
