@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#E2F2EF"
+    tools:context=".WeightLossFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/vruSteps"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Goblet Squats"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18sdp"
+                android:layout_gravity="center"
+                android:textStyle="bold|normal"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_70sdp"/>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_440sdp"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                android:backgroundTint="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_200sdp"
+                        android:src="@drawable/gobletsquats"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Steps : "
+                        android:textSize="@dimen/_18sdp"
+                        android:textColor="@color/black"
+                        android:fontFamily="sans-serif-black"
+                        android:layout_margin="@dimen/_8sdp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1) Starting Position :"
+                        android:textSize="@dimen/_13sdp"
+                        android:textColor="@color/black"
+                        android:textStyle="normal"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hold a dumbbell or kettlebell close to your chest with both hands.
+Stand with your feet shoulder-width apart, toes slightly pointed outward."
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:textColor="@color/black"
+                        android:textStyle="normal"
+                        android:layout_marginRight="@dimen/_5sdp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2) Lowering into Squat :"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="normal"
+                        android:layout_marginTop="@dimen/_7sdp"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Inhale and push your hips back while bending your knees to lower into a squat."
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:textColor="@color/black"
+                        android:textStyle="normal"
+                        android:layout_marginRight="@dimen/_5sdp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3) Rising Back Up :"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="normal"
+                        android:layout_marginTop="@dimen/_7sdp"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Exhale and push through your heels to return to the starting position."
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:textColor="@color/black"
+                        android:textStyle="normal"
+                        android:layout_marginRight="@dimen/_5sdp"/>
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>
