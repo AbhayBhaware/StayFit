@@ -22,7 +22,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Goblet Squats"
+                android:text="Balanced Diet Plan"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_18sdp"
                 android:layout_gravity="center"
@@ -53,80 +53,139 @@
                         android:layout_height="@dimen/_200sdp"
                         android:src="@drawable/gobletsquats"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Steps : "
-                        android:textSize="@dimen/_18sdp"
-                        android:textColor="@color/black"
-                        android:fontFamily="sans-serif-black"
-                        android:layout_margin="@dimen/_8sdp"/>
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1) Starting Position :"
-                        android:textSize="@dimen/_13sdp"
-                        android:textColor="@color/black"
-                        android:textStyle="normal"
-                        android:layout_marginLeft="@dimen/_8sdp"
-                        />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="✅ Breakfast :"
+                            android:textSize="@dimen/_13sdp"
+                            android:textColor="@color/black"
+                            android:textStyle="normal|bold"
+                            android:layout_marginLeft="@dimen/_8sdp"
+                            />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Hold a dumbbell or kettlebell close to your chest with both hands.
-Stand with your feet shoulder-width apart, toes slightly pointed outward."
-                        android:textSize="@dimen/_12sdp"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:textColor="@color/black"
-                        android:textStyle="normal"
-                        android:layout_marginRight="@dimen/_5sdp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Milk + Fruits + Whole grain toast 🍞"
+                            android:textSize="@dimen/_13sdp"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:layout_marginRight="@dimen/_5sdp"/>
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="2) Lowering into Squat :"
-                        android:textSize="@dimen/_13sdp"
-                        android:textStyle="normal"
-                        android:layout_marginTop="@dimen/_7sdp"
-                        android:textColor="@color/black"
-                        android:layout_marginLeft="@dimen/_8sdp"
-                        />
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Inhale and push your hips back while bending your knees to lower into a squat."
-                        android:textSize="@dimen/_12sdp"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:textColor="@color/black"
-                        android:textStyle="normal"
-                        android:layout_marginRight="@dimen/_5sdp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="✅ Mid-morning Snack :"
+                            android:textSize="@dimen/_13sdp"
+                            android:textColor="@color/black"
+                            android:textStyle="normal|bold"
+                            android:layout_marginLeft="@dimen/_8sdp"
+                            />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="3) Rising Back Up :"
-                        android:textSize="@dimen/_13sdp"
-                        android:textStyle="normal"
-                        android:layout_marginTop="@dimen/_7sdp"
-                        android:textColor="@color/black"
-                        android:layout_marginLeft="@dimen/_8sdp"
-                        />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dry Fruits + Smoothie 🥤"
+                            android:textSize="@dimen/_13sdp"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:layout_marginRight="@dimen/_5sdp"/>
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Exhale and push through your heels to return to the starting position."
-                        android:textSize="@dimen/_12sdp"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:textColor="@color/black"
-                        android:textStyle="normal"
-                        android:layout_marginRight="@dimen/_5sdp"/>
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="✅ Lunch :"
+                            android:textSize="@dimen/_13sdp"
+                            android:textColor="@color/black"
+                            android:textStyle="normal|bold"
+                            android:layout_marginLeft="@dimen/_8sdp"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dal + Roti + Vegetables + Curd"
+                            android:textSize="@dimen/_13sdp"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:layout_marginRight="@dimen/_5sdp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="✅ Evening Snack :"
+                            android:textSize="@dimen/_13sdp"
+                            android:textColor="@color/black"
+                            android:textStyle="normal|bold"
+                            android:layout_marginLeft="@dimen/_8sdp"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sprouts + Hearbal tea 🍵"
+                            android:textSize="@dimen/_13sdp"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:layout_marginRight="@dimen/_5sdp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="✅ Dinner :"
+                            android:textSize="@dimen/_13sdp"
+                            android:textColor="@color/black"
+                            android:textStyle="normal|bold"
+                            android:layout_marginLeft="@dimen/_8sdp"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Light Soup + Grilled Fish 🍲"
+                            android:textSize="@dimen/_13sdp"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:layout_marginRight="@dimen/_5sdp"/>
+                    </LinearLayout>
 
                 </LinearLayout>
 
