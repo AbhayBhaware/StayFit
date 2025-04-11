@@ -49,10 +49,12 @@
 
 
 
-                    <ImageView
+                    <VideoView
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_200sdp"
-                        android:src="@drawable/gobletsquats"/>
+                        android:layout_gravity="center"
+                        android:id="@+id/highprotienVID"
+                        android:backgroundTint="@color/white"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -187,6 +189,18 @@
                             android:textStyle="normal"
                             android:layout_marginRight="@dimen/_5sdp"/>
                     </LinearLayout>
+
+                    <Button
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:text="PLAY"
+                        android:textSize="@dimen/_15sdp"
+                        android:backgroundTint="#01C99E"
+                        android:textColor="@color/black"
+                        android:textStyle="bold|normal"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:id="@+id/playBTN4"/>
 
                 </LinearLayout>
 
