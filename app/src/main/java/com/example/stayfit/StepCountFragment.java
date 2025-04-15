@@ -1,64 +1,115 @@
 package com.example.stayfit;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link StepCountFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class StepCountFragment extends Fragment {
+public class StepCountFragment extends Fragment implements SensorEventListener {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public StepCountFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment StepCountFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static StepCountFragment newInstance(String param1, String param2) {
-        StepCountFragment fragment = new StepCountFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private SensorManager sensorManager;
+    private Sensor stepSensor;
+    private boolean isSensorAvailable;
+    private int stepCount = 0;
+    private TextView stepCountView, distanceView, caloriesView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_step_count, container, false);
+        View v= inflater.inflate(R.layout.fragment_step_count, container, false);
+
+        stepCountView = v.findViewById(R.id.step_count);
+        distanceView = v.findViewById(R.id.distance);
+        caloriesView = v.findViewById(R.id.calories);
+
+
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACTIVITY_RECOGNITION)
+                != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.ACTIVITY_RECOGNITION}, 1);
+
+        }
+
+        sensorManager = (SensorManager) requireActivity().getSystemService(getContext().SENSOR_SERVICE);
+
+        if (sensorManager != null) {
+            stepSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+            isSensorAvailable = stepSensor != null;
+        }
+        if (stepSensor == null) {
+            stepCountView.setText("Step Counter Sensor not available!");
+        }
+
+
+        return v;
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 1) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Log.d("StepCounter", "Permission granted!");
+            } else {
+                Log.d("StepCounter", "Permission denied!");
+            }
+        }
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (isSensorAvailable) {
+            sensorManager.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_UI);
+        }
+    }
+
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (isSensorAvailable) {
+            sensorManager.unregisterListener(this);
+        }
+    }
+
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (event.sensor.getType() == Sensor.TYPE_STEP_COUNTER) {
+            stepCount = (int) event.values[0];
+            stepCountView.setText("Steps: " + stepCount);
+
+            double stepLength = 0.78; // average in meters
+            double distance = stepCount * stepLength; // in meters
+            distanceView.setText(String.format("Distance: %.2f m", distance));
+
+            // Calculate calories
+            double calories = stepCount * 0.04; // kcal
+            caloriesView.setText(String.format("Calories: %.2f kcal", calories));
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        // Not needed for step counting
+    }
+
+
 }
