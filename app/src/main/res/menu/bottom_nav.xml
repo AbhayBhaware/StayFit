@@ -10,11 +10,15 @@
         android:title="Diet"
         android:icon="@drawable/food"/>
 
-    
+    <item android:id="@+id/stepsBTN"
+        android:title="Steps"
+        android:icon="@drawable/steps"/>
 
     <item android:id="@+id/profilee"
         android:title="Profile"
         android:icon="@drawable/profile"/>
+
+
 
 
 
