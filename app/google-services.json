@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1055865788013",
+    "project_id": "stayfit-e505a",
+    "storage_bucket": "stayfit-e505a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055865788013:android:345793a1332715bd549164",
+        "android_client_info": {
+          "package_name": "com.example.stayfit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-AVY6N8Wv_lGWMHxM6Cnl7tBa3v70b8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

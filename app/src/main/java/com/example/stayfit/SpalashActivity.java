@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class SpalashActivity extends AppCompatActivity {
 
     @Override
@@ -13,14 +16,18 @@ public class SpalashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spalash);
 
-        Handler h=new Handler();
-        h.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent i=new Intent(SpalashActivity.this,LoginActivity.class);
-                startActivity(i);
-                finish();
+        new Handler().postDelayed(() -> {
+            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
+            if (currentUser != null) {
+                // ✅ Already logged in
+                startActivity(new Intent(SpalashActivity.this, HomeActivity.class));
+            } else {
+                // ❌ Not logged in
+                startActivity(new Intent(SpalashActivity.this, LoginActivity.class));
             }
-        },3000);
+            finish(); // Don't come back to splash
+        }, 3000);
+
     }
 }

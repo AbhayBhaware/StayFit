@@ -26,15 +26,15 @@
         app:cardCornerRadius="10dp">
 
         <EditText
+            android:id="@+id/Username"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="  Username"
             android:layout_marginLeft="5dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:id="@+id/Username"
             android:background="#00000000"
-            android:drawableLeft="@drawable/user"/>
+            android:drawableLeft="@drawable/user"
+            android:hint="  Username"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
 
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView

@@ -8,11 +8,18 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -20,19 +27,15 @@ public class LoginActivity extends AppCompatActivity {
     Button b1_login,b2_signpage;
     TextView t1_forgetpass;
 
+    FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        loadData();
-        if(loadData()==true)
-        {
-            Intent i=new Intent(LoginActivity.this,TakeWeiHigActivity.class);
-            startActivity(i);
-            finish();
-        }
 
+        mAuth=FirebaseAuth.getInstance();
         e1_username=findViewById(R.id.Username);
         e2_password=findViewById(R.id.Password);
         b1_login=findViewById(R.id.Login);
@@ -43,37 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         b1_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (e1_username.getText().toString().isEmpty())
-                {
-                    e1_username.setError("Username cannot be Null");
-                } else if (e1_username.getText().toString().length()<5) {
-                    e1_username.setError("Username must be Greater than 5 Letters");
-                } else if (e2_password.getText().toString().isEmpty()) {
-                    e2_password.setError("Password cannot be Null");
-                } else if (e2_password.getText().toString().length()<5) {
-                    e2_password.setError("Password must be Greater than 5 Letters");
-                }
-                else {
-                    saveData();
-
-
-                    String username =e1_username.getText().toString();
-                    if(!username.isEmpty())
-                    {
-                        SharedPreferences sharedPreferences=getSharedPreferences("MyAppPrefs",MODE_PRIVATE);
-                        SharedPreferences.Editor editor=sharedPreferences.edit();
-                        editor.putString("username",username);
-                        editor.apply();
-                    }
-
-
-                    Intent i=new Intent(LoginActivity.this,TakeWeiHigActivity.class);
-                    startActivity(i);
-                    finish();
-                    Toast.makeText(LoginActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-
-
-                }
+               loginUser();
             }
         });
 
@@ -99,19 +72,49 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
-    public void saveData()
+    void loginUser()
     {
-        SharedPreferences preferences=getSharedPreferences("sharedPref",MODE_PRIVATE);
-        SharedPreferences.Editor editor=preferences.edit();
-        editor.putBoolean("Flag",true);
-        editor.apply();
+        String email=e1_username.getText().toString().trim();
+        String password=e2_password.getText().toString().trim();
+
+        if (TextUtils.isEmpty(email))
+        {
+            e1_username.setError("Enter Email");
+            return;
+        }
+        if (TextUtils.isEmpty(password))
+        {
+            e2_password.setError("Enter Password");
+            return;
+        }
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+            if (task.isSuccessful())
+            {
+                FirebaseUser user=mAuth.getCurrentUser();
+                Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show();
+                Intent i=new Intent(LoginActivity.this,HomeActivity.class);
+                startActivity(i);
+                finish();
+            }
+            else
+            {
+                Exception e=task.getException();
+                if (e instanceof FirebaseAuthInvalidUserException)
+                {
+                    Toast.makeText(this, "Email not exists", Toast.LENGTH_SHORT).show();
+                }
+                else if(e instanceof FirebaseAuthInvalidCredentialsException)
+                {
+                    Toast.makeText(this, "Incorrect Password", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(this, "Login failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
-    public boolean loadData()
-    {
-        SharedPreferences preferences=getSharedPreferences("sharedPref",MODE_PRIVATE);
-        boolean myKey=preferences.getBoolean("Flag",false);
-        return myKey;
-    }
+
 
 
 }

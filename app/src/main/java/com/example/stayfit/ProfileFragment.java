@@ -20,6 +20,8 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.security.PrivateKey;
 import java.util.PrimitiveIterator;
 
@@ -92,7 +94,12 @@ public class ProfileFragment extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                logoutUser();
+                FirebaseAuth.getInstance().signOut();
+
+                Intent i=new Intent(requireActivity(),LoginActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+                requireActivity().finish();
             }
         });
 
@@ -101,18 +108,7 @@ public class ProfileFragment extends Fragment {
         return v;
     }
 
-    private void logoutUser()
-    {
-        SharedPreferences sharedPreferences=requireActivity().getSharedPreferences("sharedPref",requireActivity().MODE_PRIVATE);
-        SharedPreferences.Editor editor=sharedPreferences.edit();
-        editor.clear();
-        editor.apply();
 
-        Intent i=new Intent(requireActivity(),LoginActivity.class);
-        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(i);
-        requireActivity().finish();
-    }
 
     public void shareText(String txt)
     {

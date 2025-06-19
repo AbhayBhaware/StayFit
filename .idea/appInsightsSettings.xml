@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.stayfit" />
+                  <option name="mobileSdkAppId" value="1:1055865788013:android:345793a1332715bd549164" />
+                  <option name="projectId" value="stayfit-e505a" />
+                  <option name="projectNumber" value="1055865788013" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
