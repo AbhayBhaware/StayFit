@@ -50,110 +50,88 @@
        </LinearLayout>
 
 
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:orientation="vertical"
-           android:layout_margin="@dimen/_10sdp">
-
            <LinearLayout
                android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_marginTop="@dimen/_15sdp"
-               android:orientation="horizontal">
+               android:layout_height="match_parent"
+               android:layout_margin="@dimen/_10sdp"
+               android:orientation="vertical">
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="@dimen/_15sdp"
+                   android:orientation="horizontal">
 
 
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_marginTop="@dimen/_8sdp"
-               android:text="Weight :"
-               android:textColor="@color/black"
-               android:textSize="@dimen/_15sdp"
-               android:fontFamily="sans-serif-black"/>
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginTop="@dimen/_8sdp"
+                       android:fontFamily="sans-serif-black"
+                       android:text="Weight :"
+                       android:textColor="@color/black"
+                       android:textSize="@dimen/_15sdp" />
 
-           <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="60kg"
-               android:id="@+id/IDweight"
-           android:textColor="@color/black"
-               android:layout_marginLeft="@dimen/_5sdp"
-               android:layout_marginTop="@dimen/_5sdp"
-               android:textStyle="italic|normal"
-           android:layout_gravity="center"
-           android:textSize="@dimen/_15sdp" />
+                   <TextView
+                       android:id="@+id/IDweight"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       android:layout_marginLeft="@dimen/_5sdp"
+                       android:layout_marginTop="@dimen/_5sdp"
+                       android:text="60kg"
+                       android:textColor="@color/black"
+                       android:textSize="@dimen/_15sdp"
+                       android:textStyle="italic|normal" />
+               </LinearLayout>
+
+
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal">
+
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginTop="@dimen/_10sdp"
+                       android:fontFamily="sans-serif-black"
+                       android:text="Hight :"
+                       android:textColor="@color/black"
+                       android:textSize="@dimen/_15sdp" />
+
+                   <TextView
+                       android:id="@+id/IDHight"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       android:layout_marginLeft="@dimen/_5sdp"
+                       android:layout_marginTop="@dimen/_5sdp"
+                       android:text="170cm"
+                       android:textColor="@color/black"
+                       android:textSize="@dimen/_15sdp"
+                       android:textStyle="italic|normal" />
+
+               </LinearLayout>
+
+               <Button
+                   android:layout_width="172dp"
+                   android:layout_height="@dimen/_35sdp"
+                   android:layout_marginTop="@dimen/_10sdp"
+                   android:backgroundTint="#01C99E"
+                   android:text="Edit"
+                   android:textColor="@color/black"
+                   android:textSize="@dimen/_16sdp"
+                   android:textStyle="normal" />
+
+
            </LinearLayout>
-
-
-           <LinearLayout
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:orientation="horizontal">
-
-
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="Hight :"
-               android:textColor="@color/black"
-               android:textSize="@dimen/_15sdp"
-               android:layout_marginTop="@dimen/_10sdp"
-               android:fontFamily="sans-serif-black"/>
-
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="170cm"
-               android:id="@+id/IDHight"
-               android:layout_marginLeft="@dimen/_5sdp"
-               android:layout_marginTop="@dimen/_5sdp"
-               android:textColor="@color/black"
-               android:textStyle="italic|normal"
-               android:layout_gravity="center"
-               android:textSize="@dimen/_15sdp"
-               />
-
-           </LinearLayout>
-
-           <Button
-               android:layout_width="172dp"
-               android:layout_height="@dimen/_35sdp"
-               android:layout_marginTop="@dimen/_10sdp"
-               android:text="Edit"
-               android:textColor="@color/black"
-               android:textStyle="normal"
-               android:textSize="@dimen/_16sdp"
-               android:backgroundTint="#01C99E"/>
-
-
-       </LinearLayout>
 
        </LinearLayout>
 
 
    </androidx.cardview.widget.CardView>
-
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_240sdp"
-        app:cardElevation="@dimen/_10sdp"
-        app:cardCornerRadius="@dimen/_7sdp"
-        android:backgroundTint="@color/white"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_10sdp">
-
-        <CalendarView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/calenderr"
-            />
-
-    </androidx.cardview.widget.CardView>
-
-
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -284,6 +262,18 @@
 
 
     </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/FloatingBTN"
+        android:backgroundTint="#01C99E"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/edit"
+        />
+
 
 
 </LinearLayout>

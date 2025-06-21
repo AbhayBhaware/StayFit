@@ -1,5 +1,6 @@
 package com.example.stayfit;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,83 +10,107 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class TakeWeiHigActivity extends AppCompatActivity {
 
     Button b1_enter;
-    EditText e1_we, e2_hi;
+    EditText e1_we, e2_hi, e3mobile;
+
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_take_wei_hig);
 
-        loadDataa();
-        if(loadDataa()==true)
-        {
-            Intent i=new Intent(TakeWeiHigActivity.this,HomeActivity.class);
-            startActivity(i);
-            finish();
-        }
-
+        databaseReference= FirebaseDatabase.getInstance().getReference("User");
         b1_enter=findViewById(R.id.enterBu);
         e1_we=findViewById(R.id.weEdit);
         e2_hi=findViewById(R.id.hiEdit);
+        e3mobile=findViewById(R.id.mobileKey);
 
         b1_enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (e1_we.getText().toString().isEmpty())
-                {
-                    e1_we.setError("Error");
-                } else if (e2_hi.getText().toString().isEmpty()) {
-                    e2_hi.setError("Error");
-                }
-                else {
-                    saveDataa();
+                registerEmailonFB();
 
-                    String weight=e1_we.getText().toString();
-                    if ((!weight.isEmpty())) {
-                        SharedPreferences sharedPreferences = getSharedPreferences("Myweight", MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("weight", weight);
-                        editor.apply();
-                    }
-
-                    String hight=e2_hi.getText().toString();
-                    if (!hight.isEmpty())
-                    {
-                        SharedPreferences sharedPreferences=getSharedPreferences("Myhight",MODE_PRIVATE);
-                        SharedPreferences.Editor editor=sharedPreferences.edit();
-                        editor.putString("hight",hight);
-                        editor.apply();
-                    }
-
-
-
-                    Intent i = new Intent(TakeWeiHigActivity.this, HomeActivity.class);
-                    startActivity(i);
-                    finish();
-
-                }
 
             }
         });
+
     }
 
-    public void saveDataa()
+    void registerEmailonFB()
     {
-        SharedPreferences preferences=getSharedPreferences("sharedPreff",MODE_PRIVATE);
-        SharedPreferences.Editor editor=preferences.edit();
-        editor.putBoolean("Flag",true);
-        editor.apply();
-    }
+        String mobile=e3mobile.getText().toString().trim();
+        String weight=e1_we.getText().toString();
+        String height=e2_hi.getText().toString();
 
-    public boolean loadDataa()
-    {
-        SharedPreferences preferences=getSharedPreferences("sharedPreff",MODE_PRIVATE);
-        boolean myKey=preferences.getBoolean("Flag",false);
-        return myKey;
+        if (mobile.isEmpty())
+        {
+            Toast.makeText(this, "Fill All Fields", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (weight.isEmpty())
+        {
+            Toast.makeText(this, "Fill All Fields", Toast.LENGTH_SHORT).show();
+
+            return;
+        }
+        if (height.isEmpty())
+        {
+            Toast.makeText(this, "Fill All Fields", Toast.LENGTH_SHORT).show();
+
+            return;
+        }
+        databaseReference.child(mobile).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists())
+                {
+                    Toast.makeText(TakeWeiHigActivity.this, "email already Exists", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    storeDatainFB(mobile,weight,height);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(TakeWeiHigActivity.this, "Database Error", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
+     public void storeDatainFB(String mobile, String weight, String height)
+     {
+         Map<String, String>userData =new HashMap<>();
+        userData.put("Height", height);
+        userData.put("Weight", weight);
+
+        databaseReference.child(mobile).setValue(userData).addOnCompleteListener(task ->
+        {
+            if (task.isSuccessful())
+            {
+                Toast.makeText(this, "Data Stored", Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+     }
+
 
 }

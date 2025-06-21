@@ -20,6 +20,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.security.PrivateKey;
@@ -32,6 +33,8 @@ public class ProfileFragment extends Fragment {
 
     TextView t1User, t2Weight, t3Hight, logout;
 
+    FloatingActionButton fab;
+
 
 
     @Override
@@ -39,6 +42,8 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_profile, container, false);
+
+        fab=v.findViewById(R.id.FloatingBTN);
 
         t1User=v.findViewById(R.id.userNM);
         t2Weight=v.findViewById(R.id.IDweight);
@@ -100,6 +105,16 @@ public class ProfileFragment extends Fragment {
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);
                 requireActivity().finish();
+            }
+        });
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i=new Intent(requireActivity(),TakeWeiHigActivity.class);
+                startActivity(i);
+                //requireActivity().finish();
             }
         });
 
