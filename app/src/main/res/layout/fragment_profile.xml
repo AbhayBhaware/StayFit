@@ -79,7 +79,7 @@
                        android:layout_gravity="center"
                        android:layout_marginLeft="@dimen/_5sdp"
                        android:layout_marginTop="@dimen/_5sdp"
-                       android:text="60kg"
+                       android:text="00kg"
                        android:textColor="@color/black"
                        android:textSize="@dimen/_15sdp"
                        android:textStyle="italic|normal" />
@@ -108,7 +108,7 @@
                        android:layout_gravity="center"
                        android:layout_marginLeft="@dimen/_5sdp"
                        android:layout_marginTop="@dimen/_5sdp"
-                       android:text="170cm"
+                       android:text="000cm"
                        android:textColor="@color/black"
                        android:textSize="@dimen/_15sdp"
                        android:textStyle="italic|normal" />

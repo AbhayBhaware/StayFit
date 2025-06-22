@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -14,7 +15,6 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CalendarView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -22,117 +22,114 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.security.PrivateKey;
-import java.util.PrimitiveIterator;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class ProfileFragment extends Fragment {
 
-
     LinearLayout l1, l2, l3;
-
     TextView t1User, t2Weight, t3Hight, logout;
-
     FloatingActionButton fab;
 
-
+    DatabaseReference databaseReference;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View v= inflater.inflate(R.layout.fragment_profile, container, false);
 
-        fab=v.findViewById(R.id.FloatingBTN);
+        View v = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        t1User=v.findViewById(R.id.userNM);
-        t2Weight=v.findViewById(R.id.IDweight);
-        t3Hight=v.findViewById(R.id.IDHight);
+        // Bind Views
+        fab = v.findViewById(R.id.FloatingBTN);
+        t1User = v.findViewById(R.id.userNM);
+        t2Weight = v.findViewById(R.id.IDweight);
+        t3Hight = v.findViewById(R.id.IDHight);
+        l1 = v.findViewById(R.id.shareLAY);
+        l2 = v.findViewById(R.id.rateusLAY);
+        l3 = v.findViewById(R.id.feedbackLAY);
+        logout = v.findViewById(R.id.logoutBTN);
 
-        SharedPreferences sharedPreferences= requireActivity().getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE);
-        String username=sharedPreferences.getString("username","Guest");
-        t1User.setText(username);
+        // Firebase DB reference
+        databaseReference = FirebaseDatabase.getInstance().getReference("User");
 
+        // Retrieve mobile number from SharedPreferences
+        SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE);
+        String userKey = sharedPreferences.getString("mobile", "");
 
-        SharedPreferences sharedPreferences1=requireActivity().getSharedPreferences("Myweight",Context.MODE_PRIVATE);
-        String weight=sharedPreferences1.getString("weight","60");
-        t2Weight.setText(weight);
+        if (!userKey.isEmpty()) {
+            databaseReference.child(userKey).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        String weight = snapshot.child("Weight").getValue(String.class);
+                        String height = snapshot.child("Height").getValue(String.class);
+                        String username=snapshot.child("Username").getValue(String.class);
 
+                        t2Weight.setText(weight);
+                        t3Hight.setText(height);
+                        t1User.setText(username);
+                    } else {
+                        Toast.makeText(getContext(), "No Data Found For This User", Toast.LENGTH_SHORT).show();
+                    }
+                }
 
-        SharedPreferences sharedPreferences2=requireActivity().getSharedPreferences("Myhight",Context.MODE_PRIVATE);
-        String hight=sharedPreferences2.getString("hight","170");
-        t3Hight.setText(hight);
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(getContext(), "Database Error", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else {
+            Toast.makeText(getContext(), "Mobile number not found in SharedPreferences", Toast.LENGTH_SHORT).show();
+        }
 
-        l1=v.findViewById(R.id.shareLAY);
-        l2=v.findViewById(R.id.rateusLAY);
-        l3=v.findViewById(R.id.feedbackLAY);
-        logout=v.findViewById(R.id.logoutBTN);
+        // Share App
+        l1.setOnClickListener(v1 -> shareText("Check Out My Application StayFit"));
 
-        l1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                shareText("Check Out My Application StayFit");
-            }
+        // Rate App
+        l2.setOnClickListener(v12 -> showRatingDialog());
+
+        // Feedback
+        l3.setOnClickListener(v13 -> {
+            Fragment feedFrag = new FeedbackFragment();
+            FragmentManager fragmentManager = getParentFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.framelayout, feedFrag);
+            transaction.addToBackStack(null);
+            transaction.commit();
+
+            Toast.makeText(getContext(), "Feedback Page", Toast.LENGTH_SHORT).show();
         });
 
-        l2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                 showRatingDialog();
-            }
+        // Logout
+        logout.setOnClickListener(v14 -> {
+            FirebaseAuth.getInstance().signOut();
+            Intent i = new Intent(requireActivity(), LoginActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+            requireActivity().finish();
         });
 
-        l3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Fragment feedFrag=new FeedbackFragment();
-                FragmentManager fragmentManager=getParentFragmentManager();
-                FragmentTransaction transaction=fragmentManager.beginTransaction();
-                transaction.replace(R.id.framelayout,feedFrag);
-                transaction.addToBackStack(null);
-                transaction.commit();
-
-                Toast.makeText(getContext(), "Feedback Page", Toast.LENGTH_SHORT).show();
-            }
+        // FAB → Update Weight/Height
+        fab.setOnClickListener(v15 -> {
+            Intent i = new Intent(requireActivity(), TakeWeiHigActivity.class);
+            startActivity(i);
         });
-
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-
-                Intent i=new Intent(requireActivity(),LoginActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(i);
-                requireActivity().finish();
-            }
-        });
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent i=new Intent(requireActivity(),TakeWeiHigActivity.class);
-                startActivity(i);
-                //requireActivity().finish();
-            }
-        });
-
-
 
         return v;
     }
 
-
-
-    public void shareText(String txt)
-    {
-        Intent i=new Intent(Intent.ACTION_SEND);
+    // Share message
+    public void shareText(String txt) {
+        Intent i = new Intent(Intent.ACTION_SEND);
         i.setType("text/plain");
         i.putExtra(Intent.EXTRA_TEXT, txt);
         startActivity(Intent.createChooser(i, "Share Via"));
     }
 
+    // Show rating dialog
     public void showRatingDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setTitle("Rate Our App");
@@ -149,13 +146,11 @@ public class ProfileFragment extends Fragment {
 
         builder.setPositiveButton("Submit", (dialog, which) -> {
             float rating = ratingBar.getRating();
-            Toast.makeText(getContext(), "Rating Done", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Thanks for rating: " + rating, Toast.LENGTH_SHORT).show();
         });
 
         builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
 
         builder.show();
     }
-
-
 }
